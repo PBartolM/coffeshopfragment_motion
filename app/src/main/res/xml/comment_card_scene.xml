@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/widget" />
+        <Constraint
+            android:id="@+id/motiontextview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_editor_absoluteY="23dp"
+            app:layout_editor_absoluteX="15dp" />
+        <Constraint
+            android:id="@+id/m"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_editor_absoluteY="23dp"
+            app:layout_editor_absoluteX="15dp" />
+        <Constraint
+            android:id="@+id/cardView2"
+            android:elevation="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleX="1"
+            android:scaleY="1" />
+        <Constraint
+            android:id="@+id/cardView2"
+            android:elevation="20dp"
+            android:scaleX="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleY="1" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@id/widget" />
+        <Constraint
+            android:id="@+id/cardView2"
+            android:elevation="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleX="2"
+            android:scaleY="2" />
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start">
+        <KeyFrameSet >
+
+            <KeyAttribute
+                app:motionTarget="@+id/cardView2"
+                app:framePosition="50"
+                android:translationY="-10dp" />
+        </KeyFrameSet>
+        <OnClick app:targetId="@id/cardView2" />
+    </Transition>
+</MotionScene>
