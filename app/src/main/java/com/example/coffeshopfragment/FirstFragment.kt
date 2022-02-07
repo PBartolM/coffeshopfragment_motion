@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -56,7 +58,10 @@ class FirstFragment : Fragment() {
         adaptador.onClick = {
             val i = items[recView.getChildAdapterPosition(it)]
             val bundle = bundleOf("name" to i.nameCoffe)
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment,bundle)
+            val nombre: TextView = view.findViewById(R.id.textView)
+            val extras = FragmentNavigatorExtras(nombre to "textoTransicion")
+            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle, null, extras)
+
         }
 
     }

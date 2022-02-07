@@ -1,6 +1,8 @@
 package com.example.coffeshopfragment
 
 import android.os.Bundle
+import android.transition.Transition
+import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,6 +37,9 @@ class SecondFragment : Fragment() {
 
         val title = binding.textviewSecond
         title.text = arguments?.getString("name")
+        val slide: Transition = TransitionInflater.from(activity).inflateTransition(R.transition.slide)
+        sharedElementEnterTransition = slide
+        sharedElementReturnTransition = slide
 
         val items = ArrayList<CommentCard>()
         items.add(CommentCard("Rapido y sencillo"))
